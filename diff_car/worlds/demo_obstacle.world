@@ -1,0 +1,81 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="demo_obstacle_world">
+    <!-- 全局光源 -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- 地面 -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- 障碍物：位于小车前方3m处 (x=3, y=0) -->
+    <model name="obstacle_cylinder">
+      <static>true</static>
+      <pose>3 0 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3</radius>
+              <length>1.0</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3</radius>
+              <length>1.0</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 终点标识：位于6m处 (x=6, y=0) -->
+    <model name="goal_marker">
+      <static>true</static>
+      <pose>6 0 0.01 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 终点旗杆 -->
+    <model name="goal_flag">
+      <static>true</static>
+      <pose>6 0 0.5 0 0 0</pose>
+      <link name="pole">
+        <visual name="pole_visual">
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1.0</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.5 0.5 0.5 1</ambient>
+            <diffuse>0.5 0.5 0.5 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>
