@@ -37,7 +37,7 @@ install(PROGRAMS
 )
 
 install(
-  DIRECTORY config description launch worlds diff_car
+  DIRECTORY config description launch worlds
   DESTINATION share/${PROJECT_NAME}
 )
 
